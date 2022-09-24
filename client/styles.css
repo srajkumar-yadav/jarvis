@@ -1,0 +1,462 @@
+body {
+    /* background-image: url('../client/images/galaxy.gif');
+    background-size: cover; */
+    margin: 0;
+}
+
+.logo {
+    position: fixed;
+    z-index: 100;
+    top: 50px;
+    left: 30px;
+    background-image: url(../client/images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 50px;
+    width: 200px;
+}
+
+.content {
+    position: relative;
+}
+
+.planet-container {
+    display: flex;
+    position: relative;
+    height: 90vh;
+}
+
+.planet-description-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.planet-description {
+    display: none;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
+.planet-description h1 {
+    color: #FFFFFF;
+}
+
+.planet-description.active-planet-desc {
+    display: block;
+}
+
+.title {
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+.planet {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+    transform: translate(-50%, 0) scale(0.7);
+    top: 50%;
+}
+
+.active-planet {
+    transform: translate(-50%, 0) scale(1);
+}
+
+.planet .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-shadow: inset -10px -10px 40px #251303, inset 10px 10px 30px -10px rgba(255, 204, 159, 0.6);
+    border-radius: 50%;
+}
+
+.planet .background {
+    animation: translateBackground 40s infinite linear;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.planet .wrap {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    border-radius: 50%;
+    animation: rotatePlanet 150s infinite linear;
+}
+
+#planet1 {
+    top: 10%;
+    left: 50%;
+}
+
+#planet1 .background {
+    background: url('../client/images/orange-planet.JPG') repeat;
+}
+
+#planet1.active-planet {
+    box-shadow: 0 0 50px 20px #F7894E;
+}
+
+#planet1 .clouds {
+    background: url(../client/images/mobile-text.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#planet2 {
+    left: 30%;
+}
+
+#planet2 .background {
+    background: url('../client/images/purple-planet.JPG') repeat;
+}
+
+#planet2.active-planet {
+    box-shadow: 0 0 50px 20px #F068EC;
+}
+
+#planet2 .clouds {
+    background: url(../client/images/web-text.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#planet3 {
+    left: 70%;
+}
+
+#planet3 .background {
+    background: url('../client/images/yellow-planet.JPG') repeat;
+}
+
+#planet3.active-planet {
+    box-shadow: 0 0 50px 20px #edad3d;
+}
+
+#planet3 .clouds {
+    background: url(../client/images/design-text.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@keyframes translateBackground {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: -600px;
+    }
+}
+
+@keyframes rotatePlanet {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(-360deg);
+    }
+}
+
+.controller {
+    display: none;
+}
+
+.controller .next {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 25px;
+    right: -52px;
+}
+
+.controller .back {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 25px;
+    left: 27px;
+}
+
+.select {
+    width: 80px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #E80F89;
+    position: relative;
+    top: -85px;
+    left: -77px;
+    opacity: 0.6;
+}
+
+.home {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 65px solid #52EFFA;
+    opacity: 0.6;
+    border-radius: 0;
+    position: relative;
+    top: -85px;
+    left: -5px;
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+    .planet-container,
+    .planet-description-container, .background, .logo, .detail-container {
+        display: none !important;
+    }
+
+    .controller {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('../client/images/controller.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.planet-projects-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.planet-project {
+    height: 375px;
+    width: 300px;
+    margin: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    background-position: center center;
+}
+
+.planet-project.active {
+    height: 500px;
+}
+
+.mobile .project-1 {
+    background-image: url('../client/images/mobile-project-1.JPG');
+}
+
+.mobile .project-2 {
+    background-image: url('../client/images/mobile-project-4.JPG');
+}
+
+.mobile .project-3 {
+    background-image: url('../client/images/mobile-project-3.JPG');
+}
+
+.web .project-1 {
+    background-image: url('../client/images/mobile-project-4.JPG');
+}
+
+.web .project-2 {
+    background-image: url('../client/images/mobile-project-1.JPG');
+}
+
+.web .project-3 {
+    background-image: url('../client/images/mobile-project-5.JPG');
+}
+
+.design .project-1 {
+    background-image: url('../client/images/mobile-project-3.JPG');
+}
+
+.design .project-2 {
+    background-image: url('../client/images/mobile-project-1.JPG');
+}
+
+.design .project-3 {
+    background-image: url('../client/images/mobile-project-4.JPG');
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 10px 10px 0;
+    display: inline-block;
+    padding: 20px;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translate(-50%);
+  }
+  
+  .arrow.next {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    right: 30px;
+    left: auto;
+  }
+  
+  .arrow.back {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    left: 30px;
+    right: auto;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .background video {
+    object-fit: cover;
+  }
+
+  .detail-container {
+    display: none;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .detail-container.active {
+    display: block;
+  }
+
+  .detail-container {
+    margin: 0;
+    height: 100vh;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .project-heading {
+    font-size: 24px;
+    margin: 30px 0 5px 0;
+  }
+  
+  .button {
+    background-color: #9A97FE;
+    border: none;
+    color: black;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0.5rem 0.8rem 0 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tags {
+    display: flex;
+  }
+  .container-info {
+    width: 65%;
+  }
+  .project-name {
+    font-size: 80px;
+  }
+  .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    padding: 150px 40px 40px;
+    box-sizing: border-box;
+    color: #fff;
+    min-height: 300px;
+    height: 300px;
+  }
+  
+  .card {
+    transition: 0.3s;
+    width: 30%;
+    max-width: 350px;
+    position: absolute;
+    right: 5%;
+    top: 20%;
+  }
+  
+  .container {
+    padding: 0 30px 30px;
+    background-color: #fff;
+    height: calc(100vh - 300px);
+  }
+  
+  .contact-info {
+    margin-top: 1.6rem;
+  }
+  .resource {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+  .email {
+    margin-top: 0.5rem;
+  }
+  

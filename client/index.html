@@ -1,0 +1,236 @@
+<html>
+
+<head>
+    <title>Discover Studio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="background">
+        <video width="100%" height="100%" autoplay loop>
+            <source src="../client/videos/Hackathan galaxy.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="logo"></div>
+    <div class="content">
+        <div class="planet-container">
+            <div class="planet" id="planet1">
+                <div class="wrap">
+                    <div class="background"></div>
+                </div>
+                <div class="clouds"></div>
+                <div class="mask"></div>
+            </div>
+
+            <div class="planet active-planet" id="planet2">
+                <div class="wrap">
+                    <div class="background"></div>
+                </div>
+                <div class="clouds"></div>
+                <div class="mask"></div>
+            </div>
+
+            <div class="planet" id="planet3">
+                <div class="wrap">
+                    <div class="background"></div>
+                </div>
+                <div class="clouds"></div>
+                <div class="mask"></div>
+            </div>
+        </div>
+
+        <div class="planet-description-container">
+            <div class="planet-description planet1-description mobile">
+                <h1>Mobile Projects</h1>
+                <div class="planet-projects-container">
+                    <div class="planet-project project-1" data-attr="project1"></div>
+                    <div class="planet-project project-2 active" data-attr="project2"></div>
+                    <div class="planet-project project-3" data-attr="project3"></div>
+                </div>
+                <div class="arrow back"></div>
+                <div class="arrow next"></div>
+            </div>
+
+            <div class="planet-description planet2-description web">
+                <h1>Web Projects</h1>
+                <div class="planet-projects-container">
+                    <div class="planet-project project-1" data-attr="project1"></div>
+                    <div class="planet-project project-2 active" data-attr="project2"></div>
+                    <div class="planet-project project-3" data-attr="project3"></div>
+                </div>
+                <div class="arrow back"></div>
+                <div class="arrow next"></div>
+            </div>
+
+            <div class="planet-description planet3-description design">
+                <h1>Design Projects</h1>
+                <div class="planet-projects-container">
+                    <div class="planet-project project-1" data-attr="project1"></div>
+                    <div class="planet-project project-2 active" data-attr="project2"></div>
+                    <div class="planet-project project-3" data-attr="project3"></div>
+                </div>
+                <div class="arrow back"></div>
+                <div class="arrow next"></div>
+            </div>
+        </div>
+
+        <div class="detail-container">
+            <div class="name">
+                <div class="project-name">Lilly Project</div>
+            </div>
+            <div class="container">
+                <div class="container-info">
+                    <div class="project-heading">
+                        What are we doing?
+                    </div>
+                    <div class="project-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada,
+                        justo in
+                        posuere scelerisque, lorem
+                        tellus auctor tortor, at efficitur nulla diam malesuada risus. Curabitur vitae ipsum sodales,
+                        ornare neque
+                        quis,
+                        viverra velit. Sed sollicitudin, tortor eu faucibus rutrum, nulla odio placerat tortor, eget
+                        condimentum
+                        lectus
+                        dui convallis diam. Mauris interdum lobortis felis sed placerat. Nullam commodo fermentum tellus
+                        tristique
+                        ornare. Vestibulum risus metus, vulputate quis libero quis, egestas cursus lacus. Curabitur
+                        ullamcorper orci
+                        metus, in viverra purus accumsan sit amet</div>
+
+                    <div class="project-heading">What do we need ?</div>
+                    <div class="project-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada,
+                        justo in
+                        posuere scelerisque, lorem
+                        tellus auctor tortor, at efficitur nulla diam malesuada risus. Curabitur vitae ipsum sodales,
+                        ornare neque
+                        quis,
+                        viverra velit. Sed sollicitudin, tortor eu faucibus rutrum, nulla odio placerat tortor, eget
+                        condimentum
+                        lectus
+                        dui convallis diam. Mauris interdum lobortis felis sed placerat. Nullam commodo fermentum tellus
+                        tristique
+                        ornare. Vestibulum risus metus, vulputate quis libero quis, egestas cursus lacus. Curabitur
+                        ullamcorper orci
+                        metus, in viverra purus accumsan sit amet</div>
+                    <div class="project-heading">Associated Tags</div>
+                    <div class="project-info tags">
+                        <button class="button">Web3</button>
+                        <button class="button">Android</button>
+                        <button class="button">React</button>
+                        <button class="button">Nodejs</button>
+                        <button class="button">AWS</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../client/images/mobile-project-3.JPG" alt="Avatar" width="100%" height="300">
+                    <div class="contact-info">
+                        <div class="resource"><b>Resource Manager : Tanuj Sharma</b></div>
+                        <div class="email">Reach out at: srajkumarayadav@deloitte.com</div>
+                        <div class="resource"><b>Project Manager : Manoj Sharma</b></div>
+                        <div class="email">Reach out at: srajkumarayadav@deloitte.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controller">
+            <div class="back"></div>
+            <div class="home"></div>
+            <div class="next"></div>
+            <div class="select"></div>
+        </div>
+    </div>
+
+    <script>
+        var socket = new WebSocket("ws://localhost:5001");
+        socket.onopen = function (event) {
+            socket.onmessage = function (event) {
+                console.log(event.data);
+                $(".active-planet").removeClass('active-planet');
+                var dataArr = event.data.split(' ');
+                var planetId = dataArr[0];
+                if(dataArr.includes('main')) {
+                    $('.planet-container').css('display', 'flex');
+                    $('.planet-description-container').css('display', 'none').removeClass('projects-active');
+                    $('.active-planet-desc').removeClass('active-planet-desc');
+                    $('.detail-container').removeClass('active');
+                    $('#planet2').addClass('active-planet');
+                }
+                if (!dataArr.includes('detailselect')) {
+                    if (dataArr.includes('detail')) {
+                        $('.detail-container').addClass('active');
+                        $('.planet-description-container').css('display', 'none').removeClass('projects-active');
+                        $('.active-planet-desc').removeClass('active-planet-desc');
+                    } else {
+                        if (dataArr.includes('project')) {
+                            $('.active-planet-desc').find('.active').removeClass('active');
+                            $('.active-planet-desc').find($("[data-attr=" + planetId + "]")).addClass('active');
+                        } else {
+                            if (dataArr.includes('description')) {
+                                $('.planet-container').css('display', 'none');
+                                $('.planet-description-container').css('display', 'flex').addClass('projects-active');
+                                $('.' + planetId + '-description').addClass('active-planet-desc');
+                                $('#' + planetId).addClass('active-planet')
+                            } else {
+                                $('#' + planetId).addClass('active-planet')
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        $(".next").on("click", function () {
+            if ($('.planet-description-container').hasClass('projects-active')) {
+                if ($('.active-planet-desc').find('.active').next().length > 0) {
+                    socket.send($('.active-planet-desc').find('.active').next().attr('data-attr') + ' project');
+                } else {
+                    socket.send($('.active-planet-desc').find('.planet-project').eq(0).attr('data-attr') + ' project');
+                }
+            } else {
+                if ($(".active-planet").next().length > 0) {
+                    socket.send($(".active-planet").next().attr('id'));
+                } else {
+                    socket.send($(".active-planet").closest(".planet-container").find('.planet').eq(0).attr('id'));
+                }
+            }
+        });
+
+        $(".back").on("click", function () {
+            if ($('.planet-description-container').hasClass('projects-active')) {
+                if ($('.active-planet-desc').find('.active').prev().length > 0) {
+                    socket.send($('.active-planet-desc').find('.active').prev().attr('data-attr') + ' project');
+                } else {
+                    socket.send($('.active-planet-desc').find('.planet-project').eq(2).attr('data-attr') + ' project');
+                }
+            } else {
+                if ($(".active-planet").prev().length > 0) {
+                    socket.send($(".active-planet").prev().attr('id'));
+                } else {
+                    socket.send($(".active-planet").closest(".planet-container").find('.planet').eq(2).attr('id'));
+                }
+            }
+        });
+
+        $(".select").on("click", function () {
+            if ($('.planet-description-container').hasClass('projects-active')) {
+                socket.send("detail")
+            } else if ($('.detail-container').hasClass('active')) {
+                socket.send("detailselect")
+            }
+            else {
+                socket.send($(".active-planet").attr('id') + ' description');
+            }
+        });
+
+        $(".home").on("click", function () {
+            socket.send("main")
+        });
+
+    </script>
+</body>
+
+</html>
