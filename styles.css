@@ -1,5 +1,5 @@
 body {
-    /* background-image: url('/images/galaxy.gif');
+    /* background-image: url('./images/galaxy.gif');
     background-size: cover; */
     margin: 0;
 }
@@ -9,7 +9,7 @@ body {
     z-index: 100;
     top: 50px;
     left: 30px;
-    background-image: url('/images/logo.png');
+    background-image: url('./images/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -123,7 +123,7 @@ a:hover {
 }
 
 #planet1 .background {
-    background: url('/images/orange-planet.JPG') repeat;
+    background: url('./images/orange-planet.JPG') repeat;
 }
 
 #planet1.active-planet {
@@ -131,7 +131,7 @@ a:hover {
 }
 
 #planet1 .clouds {
-    background: url(/images/mobile-text.png);
+    background: url(./images/mobile-text.png);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -148,7 +148,7 @@ a:hover {
 }
 
 #planet2 .background {
-    background: url('/images/purple-planet.JPG') repeat;
+    background: url('./images/purple-planet.JPG') repeat;
 }
 
 #planet2.active-planet {
@@ -156,7 +156,7 @@ a:hover {
 }
 
 #planet2 .clouds {
-    background: url(/images/web-text.png);
+    background: url(./images/web-text.png);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -173,7 +173,7 @@ a:hover {
 }
 
 #planet3 .background {
-    background: url('/images/yellow-planet.JPG') repeat;
+    background: url('./images/yellow-planet.JPG') repeat;
 }
 
 #planet3.active-planet {
@@ -181,7 +181,7 @@ a:hover {
 }
 
 #planet3 .clouds {
-    background: url(/images/design-text.png);
+    background: url(./images/design-text.png);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -274,7 +274,7 @@ a:hover {
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-image: url('/images/controller.png');
+        background-image: url('./images/controller.png');
         background-repeat: no-repeat;
         background-position: center center;
     }
@@ -301,39 +301,39 @@ a:hover {
 }
 
 .mobile .project-1 {
-    background-image: url('/images/mobile-project-1.JPG');
+    background-image: url('./images/mobile-project-1.JPG');
 }
 
 .mobile .project-2 {
-    background-image: url('/images/mobile-project-4.JPG');
+    background-image: url('./images/mobile-project-4.JPG');
 }
 
 .mobile .project-3 {
-    background-image: url('/images/mobile-project-3.JPG');
+    background-image: url('./images/mobile-project-3.JPG');
 }
 
 .web .project-1 {
-    background-image: url('/images/mobile-project-4.JPG');
+    background-image: url('./images/mobile-project-4.JPG');
 }
 
 .web .project-2 {
-    background-image: url('/images/mobile-project-1.JPG');
+    background-image: url('./images/mobile-project-1.JPG');
 }
 
 .web .project-3 {
-    background-image: url('/images/mobile-project-5.JPG');
+    background-image: url('./images/mobile-project-5.JPG');
 }
 
 .design .project-1 {
-    background-image: url('/images/mobile-project-3.JPG');
+    background-image: url('./images/mobile-project-3.JPG');
 }
 
 .design .project-2 {
-    background-image: url('/images/mobile-project-1.JPG');
+    background-image: url('./images/mobile-project-1.JPG');
 }
 
 .design .project-3 {
-    background-image: url('/images/mobile-project-4.JPG');
+    background-image: url('./images/mobile-project-4.JPG');
 }
 
 .arrow {
