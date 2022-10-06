@@ -173,7 +173,7 @@ a:hover {
 }
 
 #planet3 .background {
-    background: url('./images/yellow-planet.JPG') repeat;
+    background: url(./images/yellow-planet.JPG) repeat;
 }
 
 #planet3.active-planet {
